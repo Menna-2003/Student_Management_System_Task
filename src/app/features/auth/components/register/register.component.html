@@ -1,0 +1,60 @@
+<div class="wrapper">
+    <div class="inner">
+        <img src="../../assets/LoginandRegister/image-1.png" alt="" class="image-1">
+
+
+        <form [formGroup]="userRegisterForm" (ngSubmit)="Submit()">
+            <h3>New Account?</h3>
+            <div class="form-holder">
+                <span class="lnr lnr-user"><i class="fa-solid fa-user" style="color: #000000;"></i></span>
+                <input formControlName="username" type="text" class="form-control" placeholder="Username">
+                <div class="text-danger" [hidden]="Username?.valid || Username?.untouched">
+                    <small *ngIf="Username?.errors?.['required']">Username is required</small>
+                    <small *ngIf="Username?.errors?.['pattern']">Username must be at least 3 letters,
+                        '{{Username?.errors?.['pattern'].actualValue}}' doesn't match</small>
+                </div>
+            </div>
+            <div class="form-holder">
+                <span class="lnr lnr-phone-handset"><i class="fa-solid fa-phone" style="color: #000000;"></i></span>
+                <input formControlName="phoneNumber" type="text" class="form-control" placeholder="Phone Number">
+                <div class="text-danger" [hidden]="PhoneNumber?.valid || PhoneNumber?.untouched">
+                    <small *ngIf="PhoneNumber?.errors?.['required']">Phone number is required</small>
+                    <small *ngIf="PhoneNumber?.errors?.['pattern']">Please write correct phone number</small>
+                </div>
+            </div>
+            <div class="form-holder">
+                <span class="lnr lnr-envelope"><i class="fa-solid fa-envelope" style="color: #000000;"></i></span>
+                <input formControlName="email" type="text" class="form-control" placeholder="Email">
+                <div class="text-danger" [hidden]="Email?.valid || Email?.untouched">
+                    <small *ngIf="Email?.errors?.['required']">Email is required</small>
+                    <small *ngIf="Email?.errors?.['email']">Wrong email format</small>
+                </div>
+            </div>
+            <div class="form-holder">
+                <span class="lnr lnr-lock"><i class="fa-solid fa-lock" style="color: #000000;"></i></span>
+                <input formControlName="password" type="password" class="form-control" placeholder="Password">
+                <div class="text-danger" [hidden]="Password?.valid || Password?.untouched">
+                    <small *ngIf="Password?.errors?.['required']">Password is required</small>
+                </div>
+            </div>
+            <div class="form-holder">
+                <span class="lnr lnr-lock"><i class="fa-solid fa-lock" style="color: #000000;"></i></span>
+                <input formControlName="confirmPassword" type="password" class="form-control"
+                    placeholder="Confirm Password">
+                <div class="text-danger" [hidden]="ConfirmPassword?.valid || ConfirmPassword?.untouched">
+                    <small
+                        *ngIf="ConfirmPassword?.errors?.['required'] && userRegisterForm?.errors?.['UnmatchPasswords']">Password
+                        is required</small>
+                </div>
+                <div class="text-danger" [hidden]="ConfirmPassword?.untouched">
+                    <small *ngIf="userRegisterForm?.errors?.['UnmatchPasswords']">Passwords doesn't match</small>
+                </div>
+            </div>
+            <button type="submit" [disabled]="!userRegisterForm.valid">
+                <span>Create new user</span>
+            </button>
+        </form>
+        <img src="../../assets/LoginandRegister/image-2.png" alt="" class="image-2">
+    </div>
+
+</div>

@@ -1,0 +1,32 @@
+<div class="wrapper">
+    <div class="inner">
+        <img src="../../assets/LoginandRegister/image-1.png" alt="" class="image-1">
+
+
+        <form [formGroup]="userRegisterForm" (ngSubmit)="Submit()">
+            <h3>Welcome back!</h3>
+
+            <div class="form-holder">
+                <span class="lnr lnr-envelope"><i class="fa-solid fa-envelope" style="color: #000000;"></i></span>
+                <input formControlName="email" type="text" class="form-control" placeholder="Email">
+                <div class="text-danger" [hidden]="Email?.valid || Email?.untouched">
+                    <small *ngIf="Email?.errors?.['required']">Email is required</small>
+                    <small *ngIf="Email?.errors?.['email']">Wrong email format</small>
+                </div>
+            </div>
+            <div class="form-holder">
+                <span class="lnr lnr-lock"><i class="fa-solid fa-lock" style="color: #000000;"></i></span>
+                <input formControlName="password" type="password" class="form-control" placeholder="Password">
+                <div class="text-danger" [hidden]="Password?.valid || Password?.untouched">
+                    <small *ngIf="Password?.errors?.['required']">Password is required</small>
+                </div>
+            </div>
+
+            <button type="submit" [disabled]="!userRegisterForm.valid">
+                <span>Login</span>
+            </button>
+        </form>
+        <img src="../../assets/LoginandRegister/image-2.png" alt="" class="image-2">
+    </div>
+
+</div>
