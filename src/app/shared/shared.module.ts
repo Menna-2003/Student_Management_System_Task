@@ -21,7 +21,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [RouterModule]
+  exports: [MainLayoutComponent]
 
 })
 export class SharedModule { }
