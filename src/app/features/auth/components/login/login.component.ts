@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { MatchPassword } from '../Custom-Validators/MatchPasswords';
+import { MatchPassword } from '../../customValidation/MatchPassword';
 import { Router } from '@angular/router';
 import { UserAuthService } from '../../services/user-auth.service';
 import { LoginRequest } from '../../Models/login-request';
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     this.userRegisterForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-    });
+    }, MatchPassword);
 
   }
 

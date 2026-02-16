@@ -7,8 +7,10 @@ import { LoginComponent } from './features/auth/components/login/login.component
 
 const routes: Routes = [
 
+  { path: '', component: AppComponent },
+  { path: 'Admin', loadChildren: () => import('src/app/features/admin/admin.module').then(m => m.AdminModule) },
   { path: 'Auth', loadChildren: () => import('src/app/features/auth/auth.module').then(m => m.AuthModule) },
-  { path: 'shared', loadChildren: () => import('src/app/shared/shared.module').then(m => m.SharedModule) },
+  // { path: 'shared', loadChildren: () => import('src/app/shared/shared.module').then(m => m.SharedModule) },
 
 ];
 
